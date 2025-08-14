@@ -34,6 +34,36 @@ fn main() {
             .arg("--cross-file")
             .arg("wasm32-unknown-emscripten.meson");
     }
+    if target == "aarch64-linux-android" {
+        meson
+            .arg("--cross-file")
+            .arg("crossfiles/aarch64-android.meson");
+    }
+    if target == "arm-linux-androideabi" || target == "armv7-linux-androideabi" {
+        meson
+            .arg("--cross-file")
+            .arg("crossfiles/arm-android.meson");
+    }
+    if target == "i686-linux-android" {
+        meson
+            .arg("--cross-file")
+            .arg("crossfiles/x86-android.meson");
+    }
+    if target == "x86_64-linux-android" {
+        meson
+            .arg("--cross-file")
+            .arg("crossfiles/x86_64-android.meson");
+    }
+    if target == "aarch64-apple-ios" || target == "aarch64-apple-ios-sim" {
+        meson
+            .arg("--cross-file")
+            .arg("crossfiles/arm64-iPhoneOS.meson");
+    }
+    if target == "x86_64-apple-ios" {
+        meson
+            .arg("--cross-file")
+            .arg("crossfiles/x86_64-iPhoneSimulator.meson");
+    }
 
     let s = meson
         .arg("--default-library=static")
